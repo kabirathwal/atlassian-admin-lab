@@ -94,13 +94,3 @@ jira/secops_work_items.csv    the 24 work items imported into SECOPS
 jira/jql_filters.md           the 6 saved filters and other JQL used
 jsm/help_desk_config.md       request types, SLAs, queues, automation, change workflow
 ```
-
-## What I'd do next
-
-- Show the **Affected asset** field on help desk tickets so incidents link straight to CMDB objects (field created; not yet on the request view)
-- Replace the assignee-based approval with real **JSM approvals** (Approvers field or a CAB group)
-- Run the **Rovo permission test** (Rovo was enabled in admin but Chat wasn't available in the trial UI) and try a Rovo agent for ticket triage
-- An automation rule to clear Resolution when an item is reopened, and SLA-breach alerts
-- **SSO** with an identity provider (Okta) through Atlassian Guard
-- Manage configuration as code with the REST API or Terraform
-- Earn ACA-900, then ACP-120 (Jira Administration for Cloud)
