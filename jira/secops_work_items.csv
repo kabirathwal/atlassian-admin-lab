@@ -1,0 +1,25 @@
+Summary,Issue Type,Priority,Labels,Labels,Story Points,Description
+Enforce MFA for all staff Microsoft 365 accounts,Story,Highest,epic-access,hipaa,5,"As the security team, we need MFA on every staff account so a stolen password alone cannot access patient email. Acceptance: 100% of active users enrolled; legacy auth blocked."
+Remove 6 stale accounts of former employees,Task,High,epic-access,audit,2,"Quarterly access review found 6 enabled accounts for staff who left. Disable, then delete after 30 days per retention policy."
+Create least-privilege role for front-desk staff,Story,Medium,epic-access,rbac,3,Front desk only needs scheduling and check-in. Remove access to billing exports. Document the role in Confluence.
+Rotate shared Wi-Fi admin password,Task,Medium,epic-access,network,1,"Router admin password has not changed since install. Rotate, store in password manager, restrict admin UI to wired VLAN."
+Quarterly user access review,Task,Medium,epic-access,audit,2,"Export user list, have each manager confirm access, record sign-off in Confluence."
+Patch 14 laptops missing critical Windows updates,Bug,Highest,epic-endpoint,vulnerability,3,"Vulnerability scan shows 14 endpoints missing the latest critical cumulative update. Push via MDM, confirm with rescan."
+Enable full-disk encryption on remaining 3 laptops,Task,High,epic-endpoint,hipaa,2,BitLocker/FileVault off on 3 devices that store PHI. Enable and escrow recovery keys.
+Replace end-of-life VPN client,Story,High,epic-endpoint,vpn,5,"Current VPN client is past vendor support. Pilot new client with 5 users, then roll out to all remote staff."
+Block USB mass storage on front-desk PCs,Task,Medium,epic-endpoint,dlp,2,"Prevent PHI copied to USB drives. Apply policy via MDM, allow exceptions by ticket only."
+Standardize endpoint antivirus alerts to one console,Story,Low,epic-endpoint,edr,3,Two AV products are in use. Consolidate to one and forward alerts to the SIEM.
+Chat-api service account can read secrets cluster-wide,Bug,Highest,epic-k8s,vulnerability,3,Finding from K8s AI Security Lab Day 3: token auto-mounted and bound to ClusterRole with secrets read. Fix: automountServiceAccountToken false + namespaced Role.
+Containers run as root with privilege escalation,Bug,High,epic-k8s,vulnerability,2,"Lab finding. Fix: runAsNonRoot, allowPrivilegeEscalation false, drop ALL capabilities, PSA restricted."
+No NetworkPolicies - lateral movement possible,Bug,High,epic-k8s,vulnerability,3,Lab finding. Fix: default-deny plus allow chat-api to Ollama on model port and DNS.
+API key stored in plain environment variable,Bug,Medium,epic-k8s,secrets,1,Lab finding. Move FAKE-API-KEY into a Kubernetes Secret; plan Sealed Secrets for v2.
+"Add Trivy image + config scan to CI, fail on CRITICAL",Story,High,epic-k8s,ci,3,GitHub Actions workflow runs trivy image and trivy config on every push and uploads reports.
+Forward firewall logs to SIEM,Story,High,epic-detect,logging,5,Send firewall syslog to the SIEM and confirm events arrive within 5 minutes.
+Detection: 10+ failed logins in 5 minutes,Story,High,epic-detect,detection,3,Write and test an alert rule for brute-force attempts against M365 and VPN.
+Detection: login from new country,Story,Medium,epic-detect,detection,3,Alert when a user signs in from a country never seen for that user in 90 days.
+Tune noisy antivirus alert for scanner software,Task,Low,epic-detect,tuning,1,Document scanner triggers ~40 false positives per day. Add a scoped exclusion and document why.
+Run phishing simulation for all staff,Story,Medium,epic-detect,awareness,3,"Send one simulated phishing email, track click rate, assign training to clickers."
+Write VPN troubleshooting runbook,Task,Medium,epic-docs,runbook,2,Confluence runbook covering the 5 most common VPN tickets. Link it as a JSM knowledge base article.
+Write incident response plan v1,Story,High,epic-docs,hipaa,5,"One-page IR plan: roles, severity levels, contact tree, breach notification timeline."
+Postmortem: service account token theft (lab),Task,Medium,epic-docs,postmortem,2,"Blameless postmortem for the K8s lab attack chain: timeline, root cause, fixes, follow-ups."
+Document backup and restore test,Task,Medium,epic-docs,backup,2,"Restore one server from backup, record time to restore and any gaps."
