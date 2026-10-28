@@ -1,4 +1,4 @@
-# Kestrel Valley Atlassian Admin Lab
+# Atlassian Cloud Admin Lab
 
 **Jira · Jira Service Management · Assets · Confluence** | Built by Kabir Athwal · Atlassian Rovo Fundamentals (2026)
 
