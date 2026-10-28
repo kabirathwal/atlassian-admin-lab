@@ -87,7 +87,3 @@ Every configuration change to the Kestrel Valley Atlassian site: what changed, w
 | Edit or delete all comments, attachments, worklogs | ✓ |  |  |  |
 
 **Why roles, not people:** one scheme can serve many spaces; each space decides who fills each role, so access follows the job, not the person.
-
-## Not done
-
-- **Rovo permission test.** Rovo was enabled in admin, but Rovo Chat wasn't available in the site UI during the build. Listed under "What I'd do next" in the README.
